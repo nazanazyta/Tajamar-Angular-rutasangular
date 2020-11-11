@@ -1,0 +1,32 @@
+<h1>Tabla de multiplicar</h1>
+<form #tablaForm="ngForm" (ngSubmit)="sacarTabla()">
+    <label for="caja">Introduce un número: </label>
+    <input type="number" name="caja" #caja />&nbsp;
+    <!-- <input type="number" name="caja" #caja [(ngModel)]="numero" />&nbsp; -->
+    <button>Mostrar tabla</button>
+</form>
+
+<hr />
+
+<div *ngIf="numeros.length > 0">
+
+    <ul style="list-style: unlisted">
+        <li *ngFor="let num of numeros; let i = index">{{ operaciones[i] }} = {{ num }}</li>
+    </ul>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Operación</th>
+                <th>Resultado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let num of numeros; let i = index">
+                <!-- <td>{{ numero }} * {{i + 1}} </td> -->
+                <td>{{ operaciones[i] }}</td>
+                <td>{{ num }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
